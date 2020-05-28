@@ -22,13 +22,13 @@ function addItem(addLineItem, cart, ctx) {
   }
   
   ctx.emit(ItemAdded({
-    item: {...addItem}
+    item: {...addLineItem}
   }))
 }
 
 function removeItem(removeLineItem, cart, ctx) {
   const existing = cart.items.find(item =>
-    item.productId === removeItem.productId
+    item.productId === removeLineItem.productId
   )
 
   if (!existing) {
@@ -36,7 +36,7 @@ function removeItem(removeLineItem, cart, ctx) {
   }
 
   ctx.emit(ItemRemoved({
-    productId: removeItem.productId
+    productId: removeLineItem.productId
   }))
 }
 
