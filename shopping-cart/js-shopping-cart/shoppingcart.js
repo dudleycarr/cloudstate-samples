@@ -18,7 +18,7 @@ const {ItemAdded, ItemRemoved} = entityImport('./shoppingcart.proto')
 
 function addItem(addLineItem, cart, ctx) {
   if (addItem.quantity < 1) {
-    return ctx.fail(`Cannot add negative quantity to item ${addItem.productId}`)
+    return ctx.fail(`Cannot add negative quantity to item ${addLineItem.productId}`)
   }
   
   ctx.emit(ItemAdded({
@@ -32,7 +32,7 @@ function removeItem(removeLineItem, cart, ctx) {
   )
 
   if (!existing) {
-    return ctx.fail(`Item ${removeItem.productId} not in cart`)
+    return ctx.fail(`Item ${removeLineItem.productId} not in cart`)
   }
 
   ctx.emit(ItemRemoved({
