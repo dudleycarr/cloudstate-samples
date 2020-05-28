@@ -22,11 +22,7 @@ function addItem(addLineItem, cart, ctx) {
   }
   
   ctx.emit(ItemAdded({
-    item: {
-      productId: addItem.productId,
-      name: addItem.name,
-      quantity: addItem.quantity
-    }
+    item: {...addItem}
   }))
 }
 
